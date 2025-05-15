@@ -29,18 +29,3 @@ if (!is.finite(max_row)) {
     max_row <- 1
 }
 
-# Build frame by splitting each line into individual characters
-bonsai_frame <- data.frame(str_split_fixed(bonsai_lines[seq(max_row, t_rows)], "", t_cols))
-min_index_space <- t_cols
-max_index_space <- 1
-for (r in seq(1, t_rows)) {
-    min_index_space <- min(which(bonsai_frame[r, ] != " "), min_index_space)
-    max_index_space <- max(which(bonsai_frame[r, ] != " "), max_index_space)
-}
-
-# Remove padding at the left and right
-bonsai_frame <- bonsai_frame[ , seq(min_index_space, max_index_space)]
-
-# Rename cols
-colnames(bonsai_frame) <- rep("+", ncol(bonsai_frame))
-options(width = 3 * ncol(bonsai_frame))
