@@ -40,3 +40,7 @@ for (i in seq(1, t_rows)) {
         max_index <- max(max_index, list[[i]][nrow(list[[i]]), 1])
     }
 }
+
+# Remove padding from `bonsai_lines`
+bonsai_lines <- bonsai_lines[seq(max_row + 1, t_rows)] |>
+    substring(min_index, max_index)
