@@ -1,7 +1,7 @@
 # Load necessary libraries
 library("stringr")
 
-rbonsai <- function(message = NULL) {
+get_bonsai <- function(message = NULL) {
     # Build and get bonsai using `cbonsai` in Bash
     optional_args <- if (is.null(message)) {
         ""
@@ -51,6 +51,6 @@ rbonsai <- function(message = NULL) {
     bonsai_lines <- bonsai_lines[seq(top_row + 1, window_height)] |>
         substring(left_col, right_col)
 
-    # Print the bonsai
-    cat(bonsai_lines, sep = "\n")
+    # Return bonsai
+    return(bonsai_lines)
 }
