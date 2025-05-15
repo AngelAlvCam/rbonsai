@@ -1,9 +1,15 @@
 # Load necessary libraries
 library("stringr")
 
-rbonsai <- function() {
+rbonsai <- function(message = NULL) {
     # Build and get bonsai using `cbonsai` in Bash
-    bonsai_text <- system("cbonsai -p | sed 's/\x1b\\[[0-9;]*m//g'", intern = TRUE)
+    optional_args <- if (is.null(message)) {
+        ""
+    } else {
+        paste0(" -m '", message, "'")
+    }
+    command <- paste0("cbonsai -p", optional_args, " | sed 's/\x1b\\[[0-9;]*m//g'")
+    bonsai_text <- system(command, intern = TRUE)
 
     # Clean bonsai
     bonsai_text <- bonsai_text |>
