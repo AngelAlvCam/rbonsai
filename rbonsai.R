@@ -31,7 +31,7 @@ rbonsai <- function(message = NULL) {
         substring(starts, ends)
 
     # Identify top padding
-    top_row <- max(which(str_detect(bonsai_lines, regex("^\\s+$"))))
+    top_row <- suppressWarnings(max(which(str_detect(bonsai_lines, regex("^\\s+$")))))
     if (!is.finite(top_row)) {
         top_row <- 1
     }
