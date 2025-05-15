@@ -1,4 +1,5 @@
 \name{get_bonsai_frame}
+\alias{get_bonsai_frame}
 \title{Get Bonsai Frame}
 \description{Get the data frame representation of a ASCII art bonsai with a message.}
 \usage{

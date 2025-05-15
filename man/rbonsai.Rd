@@ -1,4 +1,5 @@
 \name{rbonsai}
+\alias{rbonsai}
 \title{RBonsai}
 \description{Prints a ASCII art bonsai with a message.}
 \usage{

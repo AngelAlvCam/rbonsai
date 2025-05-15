@@ -1,4 +1,5 @@
 \name{get_bonsai}
+\alias{get_bonsai}
 \title{Get Bonsai}
 \description{Get the string representation of a ASCII art bonsai with a message.}
 \usage{
