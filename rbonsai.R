@@ -25,7 +25,7 @@ bonsai_lines <- bonsai_text |>
 
 # Remove top padding
 max_row <- max(which(str_detect(bonsai_lines, regex("^\\s+$"))))
-if (max_row < 1 | max_row > t_rows) {
+if (!is.finite(max_row)) {
     max_row <- 1
 }
 
