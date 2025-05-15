@@ -1,4 +1,4 @@
-# Load necessary libraries
+# Load `stringr` package
 library("stringr")
 
 get_bonsai <- function(message = NULL) {
