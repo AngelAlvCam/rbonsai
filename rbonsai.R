@@ -23,9 +23,20 @@ ends <- seq(t_cols, bonsai_length, t_cols)
 bonsai_lines <- bonsai_text |>
     substring(starts, ends)
 
-# Remove top padding
+# Identify top padding
 max_row <- max(which(str_detect(bonsai_lines, regex("^\\s+$"))))
 if (!is.finite(max_row)) {
     max_row <- 1
 }
 
+# Identify left and right padding
+list <- str_locate_all(bonsai_lines, regex("[^' ']"))
+min_index = t_cols
+max_index = 1
+for (i in seq(1, t_rows)) {
+    if (length(list[[i]] > 0)) {
+        print(list[[i]][1,1])
+        min_index <- min(min_index, list[[i]][1, 1])
+        max_index <- max(max_index, list[[i]][nrow(list[[i]]), 1])
+    }
+}
