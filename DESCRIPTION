@@ -1,9 +1,10 @@
 Package: rbonsai
 Title: RBonsai
-Description: Print and get a bonsai in the console.
+Description: Print a bonsai in the console.
 Version: 1.0
 Authors@R: person("Angel", "Alvarado", role = c("aut", "cre", "cph"))
 License: MIT
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Imports: stringr

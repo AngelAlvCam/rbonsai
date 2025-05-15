@@ -1,3 +1,4 @@
+import(stringr)
 export(get_bonsai)
 export(get_bonsai_frame)
 export(rbonsai)
