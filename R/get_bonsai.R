@@ -1,5 +1,6 @@
-# Load `stringr` package
+# Load `stringr` and `cli` packages
 library("stringr")
+library("cli")
 
 get_bonsai <- function(message = NULL) {
     # Build and get bonsai using `cbonsai` in Bash
@@ -16,14 +17,10 @@ get_bonsai <- function(message = NULL) {
         str_extract(regex(">(.*)")) |>
         str_replace(">", "")
 
-    # Get terminal dimensions
-    dims <- system("stty size", intern = TRUE) |>
-        str_split(" ")
-    dims <- as.integer(dims[[1]])
-    window_height <- dims[1]
-    window_width <- dims[2]
-
     # Split bonsai in lines
+    window_width <- as.integer(system("tput cols", intern = TRUE))
+    window_height <- as.integer(system("tput lines", intern = TRUE))
+
     bonsai_length <- str_length(bonsai_text)
     starts <- seq(1, bonsai_length, window_width)
     ends <- seq(window_width, bonsai_length, window_width)
